@@ -7,14 +7,14 @@ export default class NewComment extends Component {
 
     }
 
-    handleEnter(event) {
-
-        if (event.keyCode === 13) {
+    handleEnter(command) {
+        if (command === 'clear') {
+            this.refs.comment.value = ''
+        } else {
             this.props.postNewComment({
                 comment: this.refs.comment.value
             })
             this.refs.comment.value = ''
-            event.preventDefault()
         }
     }
 
@@ -23,15 +23,14 @@ export default class NewComment extends Component {
             <div className="row" style={{ margin: 10 }}>
                 <textarea
                     ref="comment"
-                    onKeyDown={this.handleEnter}
                     placeholder="Write something!"
                     className="form-control">
                 </textarea>
                 <div style={{ marginTop: 10, marginLeft: 760 }}>
-                    <button className="btn" style={{ marginRight: 20 }}>Clear</button>
+                    <button className="btn" onClick={() => this.handleEnter('clear')} style={{ marginRight: 20 }}>Clear</button>
                     <button className="btn btn-info" onClick={this.handleEnter}>Send</button>
                 </div>
-            </div >
+            </div>
         )
     }
 }
