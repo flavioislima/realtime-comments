@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import NewComment from './components/NewComment'
+import NewComment from '../components/NewComment/NewComment'
 import 'bootstrap-css-only'
-import Comments from './components/Comments'
+import Comments from '../components/Comments/Comments'
 
 class App extends Component {
   constructor(props) {
