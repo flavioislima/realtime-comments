@@ -1,10 +1,17 @@
 import React, { Component } from 'react'
+import Comment from './Comment';
 
 export default class Comments extends Component {
+    renderComment(key, comment) {
+        return (
+            <Comment key={key} comment={comment} />
+        )
+    }
     render() {
         return (
-            <div>
-                <p className="alert alert-link">Render here all the comments</p>
+            <div className="alert alert-link">
+                Actual Comments:
+                {Object.keys(this.props.comments).map(key => this.renderComment(key, this.props.comments[key]))}
             </div>
         )
     }
