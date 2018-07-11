@@ -28,6 +28,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
+        <h2 style={{ marginLeft: '35%' }}>Realtime Comments System</h2>
         <NewComment postNewComment={this.postNewComment} />
         <Comments comments={this.state.comments} />
       </div>
