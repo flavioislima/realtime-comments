@@ -38,7 +38,8 @@ describe('Testing Methods in <App />', () => {
     //creating and array with the testing comments
     const comments = Object.keys(wrapper.instance().state.comments)
     //Logging the comments
-    console.log(wrapper.instance().state)
+    //console.log(wrapper.instance().state)
     expect(comments.length).toBe(3)
   })
 })
+
