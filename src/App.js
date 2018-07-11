@@ -8,7 +8,11 @@ class App extends Component {
     super(props)
     this.postNewComment = this.postNewComment.bind(this)
     this.state = {
-      comments: {}
+      comments: {
+        '1': { comment: 'Example Comment 1' },
+        '2': { comment: 'Example Comment 2' },
+        '3': { comment: 'Example Comment 3' },
+      }
     }
   }
 

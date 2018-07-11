@@ -14,12 +14,13 @@ export default class NewComment extends Component {
                 comment: this.refs.comment.value
             })
             this.refs.comment.value = ''
+            event.preventDefault()
         }
     }
 
     render() {
         return (
-            <div className="row">
+            <div className="row" style={{ margin: 10 }}>
                 <textarea
                     ref="comment"
                     onKeyDown={this.handleEnter}
