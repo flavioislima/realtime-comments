@@ -17,7 +17,7 @@ describe('Testing the <Comment />', () => {
     })
 
     it('Content is equal to comment state', () => {
-        expect(wrapper.text()).toBe(comment.comment)
+        expect(wrapper.text()).toBe(comment.comment + 'x')
     })
 
 })
