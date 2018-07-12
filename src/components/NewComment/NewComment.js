@@ -27,8 +27,8 @@ export default class NewComment extends Component {
                     className="form-control">
                 </textarea>
                 <div style={{ marginTop: 10, marginLeft: 760 }}>
-                    <button className="btn" onClick={() => this.handleEnter('clear')} style={{ marginRight: 20 }}>Clear</button>
-                    <button className="btn btn-info" onClick={this.handleEnter}>Send</button>
+                    <button className="btn btn-outline-info" onClick={() => this.handleEnter('clear')} style={{ marginRight: 20 }}>Clear</button>
+                    <button className="btn btn-primary" onClick={this.handleEnter}>Send</button>
                 </div>
             </div>
         )
