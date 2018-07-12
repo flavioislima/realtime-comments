@@ -32,6 +32,12 @@ class App extends Component {
   }
 
   postNewComment(comment) {
+    comment.user = {
+      name: this.state.user.displayName,
+      uid: this.state.user.uid
+    }
+    console.log(comment)
+
     const comments = { ...this.state.comments }
     const timestamp = Date.now()
     comments[`comm-${timestamp}`] = comment
@@ -41,9 +47,6 @@ class App extends Component {
 
   auth(provider) {
     this.props.auth.signInWithPopup(this.props.providers[provider])
-      .then(() => {
-
-      })
   }
 
   render() {
