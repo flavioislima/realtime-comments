@@ -25,14 +25,17 @@ export default class Comment extends Component {
     render() {
         return (
             <div className="card">
-                <p className="card-body">
-                    <a className="alert alert-info" style={{ marginRight: 0 }}>{this.props.comment.user.name}:</a>
-                    <a style={{ marginLeft: 15, fontSize: 'small', fontWeight: 'lighter' }} >{this.props.comment.comment}</a>
+                <span className="card-body">
+                    <span style={{marginRight: 10}}>{this.props.comment.user.name}:</span>
+                    <span style={{ marginLeft: 0, fontSize: 'small', fontWeight: 'lighter' }}>
+                        {this.props.comment.comment}
+                    </span>
                     <button type="button" onClick={() => this.deleteComment(this.props.id)} className="close" aria-label="Close">
                         <span aria-hidden="true">x</span>
                     </button>
-                </p>
+                </span>
             </div>
+
         )
     }
 }
