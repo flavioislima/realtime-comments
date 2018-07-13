@@ -52,12 +52,14 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <h2 style={{ marginLeft: '35%' }}>Realtime Comments System{this.state.isLoggedIn && <button style={{ marginLeft: 50 }} onClick={() => this.props.auth.signOut()} className="btn btn-link">LogOff</button>}</h2>
-        {!this.state.isLoggedIn && <div className="alert alert-info">
-          <button className="btn" onClick={() => this.auth('facebook')}>Facebook Login</button>
-          <button style={{ marginLeft: 10 }} className="btn btn-info" onClick={() => this.auth('google')}>Google Login</button>
-        </div>}
-        {this.state.isLoggedIn && <NewComment postNewComment={this.postNewComment} />}
+        <h2 style={{ textAlign: 'center' }}>Realtime Comments System{this.state.isLoggedIn && <button style={{ marginLeft: 50 }} onClick={() => this.props.auth.signOut()} className="btn btn-link">LogOff</button>}</h2>
+        <div style={{ textAlign: 'center' }} >
+          {!this.state.isLoggedIn && <div className="alert alert-info">
+            <button className="btn" onClick={() => this.auth('facebook')}>Facebook Login</button>
+            <button style={{ marginLeft: 10 }} className="btn btn-info" onClick={() => this.auth('google')}>Google Login</button>
+          </div>}
+          {this.state.isLoggedIn && <NewComment postNewComment={this.postNewComment} />}
+        </div>
         <Comments comments={this.state.comments} />
       </div>
     );

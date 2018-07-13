@@ -39,7 +39,7 @@ export default class NewComment extends Component {
                     placeholder="Write something!"
                     className="form-control">
                 </textarea><a style={{ fontSize: 'small', marginTop: 3 }}>Remaining Characters: {this.state.maxChars - this.state.written}</a>
-                <div style={{ marginTop: 10, marginLeft: 760 }}>
+                <div style={{ marginTop: 10, textAlign: 'right', width: '80%' }}>
                     <button className="btn btn-outline-info" onClick={() => this.handleEnter('clear')} style={{ marginRight: 20 }}>Clear</button>
                     <button className="btn btn-primary" onClick={this.handleEnter}>Send</button>
                 </div>
