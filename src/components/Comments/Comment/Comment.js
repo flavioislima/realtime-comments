@@ -8,24 +8,26 @@ export default class Comment extends Component {
             return
         }
 
-        const commentUser = this.props.comment.user.uid
-        const user = auth.currentUser.uid
+        if (window.confirm("Do you really want to delete this comment?")) {
+            const commentUser = this.props.comment.user.uid
+            const user = auth.currentUser.uid
 
-        if (user === commentUser) {
-            base.remove(`/comments/${key}`)
-                .then((result) => console.log(result))
-                .catch((err) => console.error(err))
-        } else {
-            alert('You can only delete your own comments!')
+            if (user === commentUser) {
+                base.remove(`/comments/${key}`)
+                    .catch(() => alert("There was an error trying to delete the comment. Check your internet status!"))
+            } else {
+                alert('You can only delete your own comments!')
+            }
         }
+
 
     }
     render() {
         return (
             <div className="card">
                 <p className="card-body">
-                    <a className="alert alert-info" style={{ marginRight: 15 }}>{this.props.comment.user.name}:</a>
-                    {this.props.comment.comment}
+                    <a className="alert alert-info" style={{ marginRight: 0 }}>{this.props.comment.user.name}:</a>
+                    <a style={{ marginLeft: 15, fontSize: 'small', fontWeight: 'lighter' }} >{this.props.comment.comment}</a>
                     <button type="button" onClick={() => this.deleteComment(this.props.id)} className="close" aria-label="Close">
                         <span aria-hidden="true">x</span>
                     </button>

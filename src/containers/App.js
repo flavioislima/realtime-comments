@@ -36,7 +36,6 @@ class App extends Component {
       name: this.state.user.displayName,
       uid: this.state.user.uid
     }
-    console.log(comment)
 
     const comments = { ...this.state.comments }
     const timestamp = Date.now()
@@ -47,12 +46,24 @@ class App extends Component {
 
   auth(provider) {
     this.props.auth.signInWithPopup(this.props.providers[provider])
+      .then((r) => console.log(r))
+      .catch((err) => {
+        if (err.code === 'auth/account-exists-with-different-credential') {
+          alert('There is a user created with this credentials!. Please, try to login with Google!')
+        }
+      })
+  }
+
+  logout() {
+    if (window.confirm("Do you really want to leave?")) {
+      this.props.auth.signOut()
+    }
   }
 
   render() {
     return (
       <div className="container">
-        <h2 style={{ textAlign: 'center' }}>Realtime Comments System{this.state.isLoggedIn && <button style={{ marginLeft: 50 }} onClick={() => this.props.auth.signOut()} className="btn btn-link">LogOff</button>}</h2>
+        <h2 style={{ textAlign: 'center' }}>Realtime Comments System{this.state.isLoggedIn && <button style={{ marginLeft: 50 }} onClick={() => this.logout()} className="btn btn-link">LogOff</button>}</h2>
         <div style={{ textAlign: 'center' }} >
           {!this.state.isLoggedIn && <div className="alert alert-info">
             <button className="btn" onClick={() => this.auth('facebook')}>Facebook Login</button>
