@@ -3,6 +3,11 @@ import base, { auth } from '../../../containers/base'
 
 export default class Comment extends Component {
     deleteComment(key) {
+        if (!auth.currentUser) {
+            alert('You have to login to be able to delete comments!')
+            return
+        }
+
         const commentUser = this.props.comment.user.uid
         const user = auth.currentUser.uid
 
