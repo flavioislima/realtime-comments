@@ -10,7 +10,7 @@ export default class Comments extends Component {
     render() {
         return (
             <div className="alert alert-link">
-                Actual Comments:
+                Comments:
                 {Object.keys(this.props.comments).map(key => this.renderComment(key, this.props.comments[key]))}
             </div>
         )

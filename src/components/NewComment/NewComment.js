@@ -4,7 +4,11 @@ export default class NewComment extends Component {
     constructor(props) {
         super(props)
         this.handleEnter = this.handleEnter.bind(this)
-
+        this.length = this.length.bind(this)
+    }
+    state = {
+        maxChars: 240,
+        written: 0
     }
 
     handleEnter(command) {
@@ -18,14 +22,23 @@ export default class NewComment extends Component {
         }
     }
 
+    length() {
+        let count = this.refs.comment.value.length
+        this.setState({
+            written: count
+        })
+    }
+
     render() {
         return (
             <div className="row" style={{ margin: 10 }}>
                 <textarea
+                    onKeyUp={this.length}
+                    maxLength={this.state.maxChars}
                     ref="comment"
                     placeholder="Write something!"
                     className="form-control">
-                </textarea>
+                </textarea><a style={{ fontSize: 'small', marginTop: 3 }}>Remaining Characters: {this.state.maxChars - this.state.written}</a>
                 <div style={{ marginTop: 10, marginLeft: 760 }}>
                     <button className="btn btn-outline-info" onClick={() => this.handleEnter('clear')} style={{ marginRight: 20 }}>Clear</button>
                     <button className="btn btn-primary" onClick={this.handleEnter}>Send</button>
