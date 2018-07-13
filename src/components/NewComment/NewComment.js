@@ -14,10 +14,12 @@ export default class NewComment extends Component {
     handleEnter(command) {
         if (command === 'clear') {
             this.refs.comment.value = ''
+            this.setState({ written: 0 })
         } else {
             this.props.postNewComment({
                 comment: this.refs.comment.value
             })
+            this.setState({ written: 0 })
             this.refs.comment.value = ''
         }
     }
