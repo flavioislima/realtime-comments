@@ -72,8 +72,4 @@ https://reactjs-faea2.firebaseapp.com
 - [Flávio F Lima](https://github.com/flavioislima)
 
 ## Project built during devReactJS course at
-<<<<<<< HEAD
 - [DevPleno](https://www.devpleno.com)
-=======
-- [DevPleno](https://devpleno.com.br)
->>>>>>> c243ade8940e5f77e73a759127233e7b097c8add
