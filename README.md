@@ -70,3 +70,6 @@ https://reactjs-faea2.firebaseapp.com
 ## Author
 
 - [Flávio F Lima](https://github.com/flavioislima)
+
+## Project built during devReactJS course at
+- [DevPleno] (https://devpleno.com.br)
