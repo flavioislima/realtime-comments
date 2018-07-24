@@ -17,7 +17,7 @@
 .env.production.local
 
 # sensitive information
-/src/base.js
+base.js
 
 npm-debug.log*
 yarn-debug.log*
